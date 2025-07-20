@@ -1,7 +1,4 @@
-class Node:
-    def __init__(self, val=0, Next=None):
-        self.val=val
-        self.next=Next
+from linkedLists import List
 
 def reverse(head):
     curr=head
@@ -13,25 +10,15 @@ def reverse(head):
         curr=next
     return prev
 
-def printNode(head):
-    curr=head
-    while curr:
-        print(curr.val)
-        curr=curr.next
-
-
 if __name__ == "__main__":
-    head=Node(1,None)
-    e1=Node(2,None)
-    e2=Node(3,None)
-    e3=Node(4,None)
+    l = List()
 
-    head.next=e1
-    e1.next=e2
-    e2.next=e3
+    l.add_back(1)
+    l.add_back(2)
+    l.add_back(3)
+    l.add_back(4)
 
-    printNode(head)
+    l.dump()
     print()
-    head = reverse(head)
-    print()
-    printNode(head)
+    l.head = reverse(l.head)
+    l.dump()
