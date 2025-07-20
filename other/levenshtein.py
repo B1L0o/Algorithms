@@ -14,4 +14,6 @@ def levenshtein_rec(word1, word2):
     return helper(0,0, len(word1), len(word2))
 
 if __name__ == "__main__":
-    print(levenshtein_rec("robbery", "slavery"))
+    word1 = input("choose a word: " )
+    word2 = input("choose a second word: ")
+    print(levenshtein_rec(word1, word2))

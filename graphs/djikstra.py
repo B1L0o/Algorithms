@@ -5,7 +5,6 @@ def djikstra(n, edges, src):
     visited = [False] * n
     adj = {i: [] for i in range(n)}
     for a,b,w in edges:
-        print(a," -> ",b, "    ", w)
         adj[a].append([w,b])
     
     dist[src] = 0
@@ -37,4 +36,4 @@ if __name__ == "__main__":
         (4, 5, 3)
     ]
 
-    print(djikstra(6, edges, 0))
+    print("final distances:", djikstra(6, edges, 0))
