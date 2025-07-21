@@ -40,6 +40,7 @@ def mergesort(arr,left,right):
         mergesort(arr,left,mid)
         mergesort(arr,mid+1,right)
         helper(arr,left,mid,right)
+
         global num
         print("AFTER ",num+1,"\tITERATIONS: \t", arr )
         num+=1

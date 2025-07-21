@@ -21,4 +21,4 @@ if __name__ == "__main__":
     edges = generate_graph(n)
     forest = kruskal(n,edges)
     dump_graph(n,edges,oriented=False)
-    dump_graph(n,forest,oriented=False)
+    dump_graph(n,forest,oriented=False,name="Minimal Spanning Tree")

@@ -25,6 +25,6 @@ def boyermoore(s,pattern):
     return False
 
 if __name__ == "__main__":
-    s = input("choose a sentence: ")
-    t = input("choose a pattern: ")
-    print(boyermoore(s,t))
+    s = input("Enter a sentence: \n")
+    t = input("Enter a pattern: \n")
+    print(f"'{t}' is present in '{s}'." if boyermoore(s,t) else f"'{t}' is not present in '{s}'.")

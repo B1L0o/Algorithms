@@ -14,6 +14,6 @@ def levenshtein_rec(word1, word2):
     return helper(0,0, len(word1), len(word2))
 
 if __name__ == "__main__":
-    word1 = input("choose a word: " )
-    word2 = input("choose a second word: ")
-    print(levenshtein_rec(word1, word2))
+    word1 = input("Enter a word: \n" )
+    word2 = input("Enter a second word:\n")
+    print(f"The Levenshtein distance between {word1} and {word2} is {levenshtein_rec(word1, word2)}.")

@@ -3,7 +3,7 @@ class segmentTree:
         #size of the tree can not be more than 4times the array's size
         self.pos= [0] * 4*n
 
-    # build has to be called with n-1 as right value
+    # build has to be called with n-1 (rightmost) for "right" parameter
     def build(self,arr,right,left=0,segment=1):
         if (left == right):
             self.pos[segment] = arr[left]

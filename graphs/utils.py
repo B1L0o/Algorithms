@@ -2,7 +2,7 @@ import random
 import matplotlib.pyplot as plt
 import networkx as nx
 
-def dump_graph(n,edges, oriented=True, node_size=500, font_size=12, figsize=(20, 10)):
+def dump_graph(n,edges, oriented=True, node_size=500, font_size=12, figsize=(20, 10),name="Actual Graph"):
     G = nx.DiGraph() if oriented else nx.Graph()
 
     for source, target, weight in edges:
@@ -18,7 +18,7 @@ def dump_graph(n,edges, oriented=True, node_size=500, font_size=12, figsize=(20,
     edge_labels = nx.get_edge_attributes(G, 'weight')
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=font_size - 2)
 
-    plt.title("Actual Graph", fontsize=16, fontweight='bold')
+    plt.title(name, fontsize=16, fontweight='bold')
     plt.axis("off")
     plt.show()
 
