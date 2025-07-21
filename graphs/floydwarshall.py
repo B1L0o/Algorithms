@@ -1,3 +1,5 @@
+# compute all pairs of distances - MSSP
+
 def floydWarshall(n,edges):
 
     dp = [[float("inf") if i != j else 0 for j in range(n)] for i in range(n)]

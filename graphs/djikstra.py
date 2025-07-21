@@ -1,3 +1,5 @@
+# best but only works without negatives cycles - SSSP
+
 import heapq
 
 def djikstra(n, edges, src):

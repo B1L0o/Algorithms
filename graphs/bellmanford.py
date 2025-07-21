@@ -1,3 +1,5 @@
+# worse than djikstra but works with negative cycles - SSSP
+
 def bellmanford(n,edges,src):
     dist = [float("inf")] * n 
     dist[src] = 0
