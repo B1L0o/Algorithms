@@ -6,12 +6,9 @@ class UnionFind:
         self.rank = [0] * n
 
     def find(self, x):
-
         root = self.parent[x]
-
         if root == x:
             return x
-        
         return self.find(self.parent[x])
 
     def union(self, x, y):
@@ -19,7 +16,6 @@ class UnionFind:
         yRoot = self.find(y)
         if xRoot == yRoot:
             return
-        
         #optimization by rank, could aslo be done by size
         if self.rank[xRoot] < self.rank[yRoot]:
             self.parent[xRoot] = yRoot

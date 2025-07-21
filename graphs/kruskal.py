@@ -5,8 +5,7 @@ import heapq
 
 def kruskal(n, edges):
     DSU = UnionFind(n)
-    forest = set()
-    res=[]
+    forest = []
     pq = []
     for a,b,w in edges:
         heapq.heappush(pq,(w,[a,b])) 
@@ -14,16 +13,12 @@ def kruskal(n, edges):
         w,[a,b] = heapq.heappop(pq)
         if DSU.find(a) != DSU.find(b):
             DSU.union(a,b)
-            edge = str(a) + "->" + str(b)
-            forest.add(edge)
-            res.append([a,b,w])
-    return forest,res
-
+            forest.append([a,b,w])
+    return forest
 
 if __name__ == "__main__":
-    n=int(input("number of edges in the graph: "))
+    n=int(input("Enter number of nodes: \n"))
     edges = generate_graph(n)
-    forest,res = kruskal(n,edges)
-    print(forest)
+    forest = kruskal(n,edges)
     dump_graph(n,edges,oriented=False)
-    dump_graph(n,res,oriented=False)
+    dump_graph(n,forest,oriented=False)

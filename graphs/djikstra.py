@@ -1,4 +1,5 @@
 # best but only works without negatives cycles - SSSP
+from utils import dump_graph, generate_graph
 
 import heapq
 
@@ -26,16 +27,8 @@ def djikstra(n, edges, src):
     return dist
 
 if __name__ == "__main__":
-    edges = [
-        (0, 1, 4),
-        (0, 2, 2),
-        (1, 2, 1),
-        (1, 3, 5),
-        (2, 3, 8),
-        (2, 4, 10),
-        (3, 4, 2),
-        (3, 5, 6),
-        (4, 5, 3)
-    ]
+    size = int(input("Enter number of nodes:\n"))
+    edges = generate_graph(size)
+    print("[======= Final distances ======]\n", djikstra(size, edges,0))
+    dump_graph(size,edges)
 
-    print("final distances:", djikstra(6, edges, 0))

@@ -1,4 +1,5 @@
 # worse than djikstra but works with negative cycles - SSSP
+from utils import dump_graph, generate_graph
 
 def bellmanford(n,edges,src):
     dist = [float("inf")] * n 
@@ -16,16 +17,7 @@ def bellmanford(n,edges,src):
     return dist
 
 if __name__ == "__main__":
-    edges = [
-        (0, 1, 4),
-        (0, 2, 2),
-        (1, 2, 1),
-        (1, 3, 5),
-        (2, 3, 8),
-        (2, 4, 10),
-        (3, 4, 2),
-        (3, 5, 6),
-        (4, 5, 3)
-    ]
-
-    print("final distances:", bellmanford(6, edges, 0))
+    size = int(input("Enter number of nodes:\n"))
+    edges = generate_graph(size)
+    print("[======= Final distances ======]\n", bellmanford(size, edges,0))
+    dump_graph(size,edges)

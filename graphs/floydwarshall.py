@@ -14,8 +14,9 @@ def floydWarshall(n,edges):
     return dist
 
 if __name__ == "__main__":
-    edges = generate_graph(6)
-    print("final distances:", floydWarshall(6, edges))
-    dump_graph(edges)
+    size = int(input("Enter number of nodes:\n"))
+    edges = generate_graph(size)
+    print("[======= Final distances ======]\n", floydWarshall(size, edges))
+    dump_graph(size,edges)
 
 
