@@ -1,4 +1,5 @@
 # compute all pairs of distances - MSSP
+import graphviz
 
 def floydWarshall(n,edges):
 
@@ -26,4 +27,6 @@ if __name__ == "__main__":
     ]
 
     print("final distances:", floydWarshall(6, edges))
+    graphviz.dump_graph(edges)
+
 

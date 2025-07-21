@@ -6,6 +6,41 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import random
 import heapq
 
+def selection_sort(arr,record_frame, frame_interval=50, stop_flag=None):
+    n=len(arr)
+    steps=0
+    for i in range(n-1):
+        if stop_flag and stop_flag[0]:  
+            return
+        min_val=arr[i]
+        pos=i
+        for j in range(i+1,n):
+            if stop_flag and stop_flag[0]: 
+                return
+            if arr[j] < min_val:
+                min_val=arr[j]
+                pos=j
+        arr[i],arr[pos] = arr[pos],arr[i]
+        if steps % frame_interval == 0:
+                record_frame(arr)
+    record_frame(arr)
+
+def insertion_sort(arr,record_frame, frame_interval=50, stop_flag=None):
+    n=len(arr)
+    steps=0
+    for i in range(1,n):
+        if stop_flag and stop_flag[0]:  
+            return
+        j = i-1
+        while j >= 0 and arr[j] > arr[j+1]:
+            if stop_flag and stop_flag[0]: 
+                return
+            arr[j],arr[j+1] = arr[j+1],arr[j]
+            j-=1
+            if steps % frame_interval == 0:
+                record_frame(arr)
+    record_frame(arr)
+
 def heapsort(arr, record_frame, frame_interval=50, stop_flag=None):
     n = len(arr)
     pq = []
@@ -119,7 +154,7 @@ class SortVisualizerApp:
         self.algo = tk.StringVar(value="Bubble Sort")
         ttk.Label(self.control_frame, text="Algorithm:").pack(side=tk.LEFT)
         ttk.Combobox(self.control_frame, textvariable=self.algo, 
-                    values=["Bubble Sort", "Heap Sort", "Merge Sort"], state="readonly").pack(side=tk.LEFT, padx=(5,15))
+                    values=["Bubble Sort","Insertion Sort","Selection Sort","Heap Sort", "Merge Sort"], state="readonly").pack(side=tk.LEFT, padx=(5,15))
 
         self.animation_speed = tk.IntVar(value=2)
         ttk.Label(self.control_frame, text="Speed:").pack(side=tk.LEFT)
@@ -177,10 +212,15 @@ class SortVisualizerApp:
 
         if self.algo.get() == "Bubble Sort":
             bubble_sort(array, record_frame, frame_interval, self.stop_flag)
+        if self.algo.get() == "Insertion Sort":
+            insertion_sort(array, record_frame, frame_interval, self.stop_flag)
+        elif self.algo.get() == "Selection Sort":
+            selection_sort(array, record_frame, frame_interval, self.stop_flag)
         elif self.algo.get() == "Heap Sort":
             heapsort(array, record_frame, frame_interval, self.stop_flag)
         elif self.algo.get() == "Merge Sort":
             mergesort(array, 0, len(array) - 1, record_frame, frame_interval, self.stop_flag)
+
 
         if not self.stop_flag[0]:
             self.playback_frames(bars, canvas)
