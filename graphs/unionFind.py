@@ -20,7 +20,7 @@ class UnionFind:
         if xRoot == yRoot:
             return
         
-        #optimization by rank, could be done by size too
+        #optimization by rank, could aslo be done by size
         if self.rank[xRoot] < self.rank[yRoot]:
             self.parent[xRoot] = yRoot
         elif self.rank[xRoot] > self.rank[yRoot]:
