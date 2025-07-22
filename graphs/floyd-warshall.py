@@ -2,7 +2,6 @@
 from utils import dump_graph, generate_graph
 
 def floydWarshall(n,edges):
-
     dist = [[float("inf") if i != j else 0 for j in range(n)] for i in range(n)]
     for a,b,w in edges:
         dist[a][b] = w

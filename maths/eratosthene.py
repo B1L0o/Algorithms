@@ -1,7 +1,6 @@
 import math
 
 def eratosthenes(n):
-
     primes = [x % 2 == 1 or x == 2 for x in range(n + 1)]
     root = math.ceil(math.sqrt(n))
     for i in range(3, root, 2):
