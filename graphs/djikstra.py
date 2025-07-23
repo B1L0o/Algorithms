@@ -7,6 +7,7 @@ def djikstra(n, edges, src):
     dist = [float("inf")] * n
     visited = [False] * n
     adj = {i: [] for i in range(n)}
+
     for a,b,w in edges:
         adj[a].append([w,b])
     
@@ -20,10 +21,12 @@ def djikstra(n, edges, src):
             continue
 
         visited[v1] = True
+
         for w2, v2 in adj[v1]:
             if w1 + w2 < dist[v2]:
                 dist[v2] = w1 + w2
                 heapq.heappush(pq, (w1 + w2, v2))
+
     return dist
 
 if __name__ == "__main__":

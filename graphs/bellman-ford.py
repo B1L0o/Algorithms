@@ -4,6 +4,7 @@ from utils import dump_graph, generate_graph
 def bellmanford(n,edges,src):
     dist = [float("inf")] * n 
     dist[src] = 0
+
     for _ in range(n):
         for ingoing,outgoing,weight in edges:
             if dist[ingoing] + weight < dist[outgoing]:

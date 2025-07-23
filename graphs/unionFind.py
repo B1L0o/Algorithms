@@ -9,6 +9,7 @@ class UnionFind:
         root = self.parent[x]
         if root == x:
             return x
+        
         return self.find(self.parent[x])
 
     def union(self, x, y):

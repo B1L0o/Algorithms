@@ -7,8 +7,10 @@ def kruskal(n, edges):
     DSU = UnionFind(n)
     forest = []
     pq = []
+
     for a,b,w in edges:
         heapq.heappush(pq,(w,[a,b])) 
+
     while pq:
         w,[a,b] = heapq.heappop(pq)
         if DSU.find(a) != DSU.find(b):

@@ -1,8 +1,10 @@
 from node import Node
 
 class List:
+
     def __init__(self):
         self.head = None
+
 
     def length(self):
         res=0
@@ -11,6 +13,7 @@ class List:
             current=current.next 
             res += 1
         return res 
+    
 
     def dump(self):
         if self.head == None:
@@ -22,6 +25,7 @@ class List:
             current = current.next
         print(dump)
     
+
     def add_front(self,x):
         if self.head == None:
             self.head = Node(x)
@@ -30,6 +34,7 @@ class List:
             front.next = self.head 
             self.head = front
     
+
     def add_back(self,x):
        if self.head == None:
             self.head = Node(x) 
@@ -40,10 +45,12 @@ class List:
                 current = current.next
             current.next = back
 
+
     def pop_front(self):
         if self.head == None:
             return
         self.head = self.head.next
+
 
     def pop_back(self):
         if self.head == None: 
@@ -56,6 +63,7 @@ class List:
             current = current.next 
         current.next = None
 
+
 if __name__ == "__main__":
     l1 = List()
     l1.add_front(1)
@@ -63,13 +71,8 @@ if __name__ == "__main__":
     l1.add_front(3)
     l1.add_front(4)
     l1.add_front(5)
-
     l1.dump()
-
     l1.pop_front()
-
     l1.dump()
-
     l1.pop_back()
-
     l1.dump()

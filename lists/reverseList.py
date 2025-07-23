@@ -12,12 +12,10 @@ def reverse(head):
 
 if __name__ == "__main__":
     l = List()
-
     l.add_back(1)
     l.add_back(2)
     l.add_back(3)
     l.add_back(4)
-
     l.dump()
     print()
     l.head = reverse(l.head)
