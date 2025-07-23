@@ -24,7 +24,7 @@ class segmentTree_IS:
             pos //= 2
             self.tree[pos] = self.tree[2*pos] + self.tree[2*pos + 1]
 
-    def range_sum(self,left,right):
+    def query(self,left,right):
         res=0
         left+=self.size 
         right+=self.size 
@@ -61,7 +61,7 @@ class segmentTree_IM:
             pos //= 2
             self.tree[pos] = max(self.tree[2*pos], self.tree[2*pos + 1])
 
-    def range_max(self,left,right):
+    def query(self,left,right):
         res=0
         left+=self.size 
         right+=self.size 
@@ -86,5 +86,5 @@ if __name__ == "__main__":
     st = segmentTree_IM(arr)
     print(st.range_max(1, 4))  
     st.update(2, 10)           
-    print(st.range_max(1, 4)) 
+    print(st.quey(1, 4)) 
 

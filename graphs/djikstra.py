@@ -21,19 +21,20 @@ def djikstra(n, edges, src):
 
         visited[v1] = True
         for w2, v2 in adj[v1]:
-            heapq.heappush(pq, (w1 + w2, v2))
             if w1 + w2 < dist[v2]:
                 dist[v2] = w1 + w2
+                heapq.heappush(pq, (w1 + w2, v2))
     return dist
 
 if __name__ == "__main__":
     size = int(input("Enter number of nodes:\n"))
-    src = int(input("Select the starting node:\n"))
     edges = generate_graph(size)
-    D=djikstra(size, edges,src)
-    print("\n\t[======= Final distances ======]\n")
-    for i in range(len(D)):
-        if i == src:
-            continue
-        print(f"The distance to the node: [{i}] is \t[{D[i]}]")
-    dump_graph(size,edges)
+    while True:
+        src = int(input("Select the starting node:\n"))
+        D=djikstra(size, edges,src)
+        print("\n\t[======= Final distances ======]\n")
+        for i in range(len(D)):
+            if i == src:
+                continue
+            print(f"The distance to the node: [{i}] is \t[{D[i]}]")
+        dump_graph(size,edges)
