@@ -73,5 +73,3 @@ if __name__ == "__main__":
     l1.pop_back()
 
     l1.dump()
-
-    
