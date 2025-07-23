@@ -2,7 +2,7 @@ import random
 import matplotlib.pyplot as plt
 import networkx as nx
 
-def dump_graph(n,edges, oriented=True, node_size=500, font_size=12, figsize=(20, 10),name="Actual Graph"):
+def dump_graph(n,edges, oriented=True, node_size=500, font_size=12, figsize=(20, 10),name="Graph Preview"):
     G = nx.DiGraph() if oriented else nx.Graph()
 
     for source, target, weight in edges:

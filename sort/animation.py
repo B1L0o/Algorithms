@@ -9,36 +9,45 @@ import heapq
 def selection_sort(arr,record_frame, frame_interval=50, stop_flag=None):
     n=len(arr)
     steps=0
+
     for i in range(n-1):
         if stop_flag and stop_flag[0]:  
             return
+        
         min_val=arr[i]
         pos=i
         for j in range(i+1,n):
             if stop_flag and stop_flag[0]: 
                 return
+            
             if arr[j] < min_val:
                 min_val=arr[j]
                 pos=j
+
         arr[i],arr[pos] = arr[pos],arr[i]
         if steps % frame_interval == 0:
                 record_frame(arr)
+
     record_frame(arr)
 
 def insertion_sort(arr,record_frame, frame_interval=50, stop_flag=None):
     n=len(arr)
     steps=0
+
     for i in range(1,n):
         if stop_flag and stop_flag[0]:  
             return
+        
         j = i-1
         while j >= 0 and arr[j] > arr[j+1]:
             if stop_flag and stop_flag[0]: 
                 return
+            
             arr[j],arr[j+1] = arr[j+1],arr[j]
             j-=1
             if steps % frame_interval == 0:
                 record_frame(arr)
+
     record_frame(arr)
 
 def heapsort(arr, record_frame, frame_interval=50, stop_flag=None):
@@ -61,15 +70,19 @@ def heapsort(arr, record_frame, frame_interval=50, stop_flag=None):
 def bubble_sort(arr, record_frame, frame_interval=50, stop_flag=None):
     n = len(arr)
     steps = 0
+
     for i in range(n - 1):
         if stop_flag and stop_flag[0]:  
             return
+        
         for j in range(n - i - 1):
             if stop_flag and stop_flag[0]: 
                 return
+            
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
             steps += 1
+
             if steps % frame_interval == 0:
                 record_frame(arr)
     record_frame(arr)
@@ -129,6 +142,7 @@ def helper(arr, left, mid, right, record_frame, frame_interval=50, stop_flag=Non
 def mergesort(arr, left, right, record_frame, frame_interval=50, stop_flag=None):
     if stop_flag and stop_flag[0]: 
         return
+
     if left < right:
         mid = (left + right) // 2
         mergesort(arr, left, mid, record_frame, frame_interval, stop_flag)

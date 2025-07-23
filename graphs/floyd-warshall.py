@@ -12,10 +12,12 @@ def floydWarshall(n,edges):
             for i in range(n):
                 dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
 
+    #TODO HANDLING NEGATIVE EDGES
+
     return dist
 
 if __name__ == "__main__":
-    size = int(input("Enter number of nodes:\n"))
+    size = int(input("\nEnter number of nodes:\n\n> "))
     edges = generate_graph(size)
     dist = floydWarshall(size,edges)
     print("\n[======= Final distances ======]\n")

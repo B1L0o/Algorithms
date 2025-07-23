@@ -1,5 +1,9 @@
-def levenshtein_rec(word1, word2):
+from functools import lru_cache
 
+# Recursive implementation
+def levenshtein_rec(word1, word2):
+    # puts the calls in the cache which improves complexity 
+    @lru_cache
     def helper(i1, i2, n1, n2):
         if i1 == n1:
             return n2 - i2
@@ -17,7 +21,7 @@ def levenshtein_rec(word1, word2):
     return helper(0,0, len(word1), len(word2))
 
 
-
+# DP implementation
 def levenshtein(word1,word2):
 
     m,n = len(word1),len(word2)

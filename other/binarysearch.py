@@ -1,6 +1,7 @@
 def bsearch(arr,x):
     L = 0
     R= len(arr)-1
+
     while L <= R:
         M = (L+R)//2
 
@@ -12,4 +13,5 @@ def bsearch(arr,x):
 
         else:
             R = M-1
+
     return -1

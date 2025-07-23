@@ -208,6 +208,7 @@ class LinkedList:
             self.push_back(x)
             self.remove(pos)
 
+
 if __name__ == "__main__":
     l = LinkedList()
 

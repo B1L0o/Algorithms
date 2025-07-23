@@ -1,6 +1,6 @@
 from node import Node
 
-class List:
+class LinkedList:
 
     def __init__(self):
         self.head = None
@@ -64,8 +64,22 @@ class List:
         current.next = None
 
 
+    def load_array(self,array):
+        for e in array:
+            self.push_back(e)
+
+
+    def into_array(self):
+        array = []
+        current = self.head 
+        while current != None:
+            array.append(current.val)
+            current = current.next
+        return array
+
+
 if __name__ == "__main__":
-    l1 = List()
+    l1 = LinkedList()
     l1.add_front(1)
     l1.add_front(2)
     l1.add_front(3)

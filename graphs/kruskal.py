@@ -1,6 +1,5 @@
 from unionFind import UnionFind
 from utils import dump_graph, generate_graph
-
 import heapq
 
 def kruskal(n, edges):
@@ -16,6 +15,7 @@ def kruskal(n, edges):
         if DSU.find(a) != DSU.find(b):
             DSU.union(a,b)
             forest.append([a,b,w])
+
     return forest
 
 if __name__ == "__main__":
