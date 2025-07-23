@@ -1,5 +1,6 @@
 from unionFind import UnionFind
 from utils import dump_graph, generate_graph
+
 import heapq
 
 def kruskal(n, edges):
@@ -19,8 +20,10 @@ def kruskal(n, edges):
     return forest
 
 if __name__ == "__main__":
-    n=int(input("Enter number of nodes: \n"))
+    n=int(input("\nEnter number of nodes for the graph: \n\n> "))
     edges = generate_graph(n)
     forest = kruskal(n,edges)
+    print("\n[ Graph preview ... ]\n")
     dump_graph(n,edges,oriented=False)
+    print("[ MST preview ...]\n")
     dump_graph(n,forest,oriented=False,name="Minimal Spanning Tree")

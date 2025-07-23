@@ -10,6 +10,7 @@ def kadane_opt(arr):
 
     return m
 
+
 def kadane_dp(arr):
     n=len(arr)
     dp = [0] * (n+1)
