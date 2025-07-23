@@ -1,6 +1,6 @@
 from node import DNode
 
-class DoubleList:
+class LinkedList:
 
     def __init__(self):
         self.head = None 
@@ -175,16 +175,16 @@ class DoubleList:
 
 
     def dump(self):
-        print(f"List has {self.length} nodes.")
+        print(f"\nThe list has {self.length} nodes.\n")
         if self.length == 0:
             return 
 
-        output = "head->" + str(self.head.val)
+        output = "head --> " + str(self.head.val)
         current = self.head.next
         while current != None:
-            output += " -> " + str(current.val)
+            output += " --> " + str(current.val)
             current = current.next
-        output += "<-tail"
+        output += " <-- tail"
         print(output)
 
 
@@ -209,34 +209,100 @@ class DoubleList:
             self.remove(pos)
 
 if __name__ == "__main__":
-    l = DoubleList()
+    l = LinkedList()
 
     text = "\n\nList of instructions: \n\n"
-    text += "push_front - Pushes an element at the beginning of the list\n"
-    text += "push_back - Pushes an element at the end of the list\n"
-    text += "pop_front - Removes the first element of the list\n"
-    text += "pop_back - Removes the last element of the list\n"
-    text += "dump - Prints the list \n"
-    text += "reverse - Reverse the lst \n"
+    text += "push_front\tPushes an element at the beginning of the list.\n"
+    text += "push_back\tPushes an element at the end of the list.\n"
+    text += "pop_front\tRemoves the first element of the list.\n"
+    text += "pop_back\tRemoves the last element of the list.\n"
+    text += "dump\t\tPrints the list.\n"
+    text += "reverse\t\tReverse the list.\n"
+    text += "get\t\tReturns the value at the given index.\n" 
+    text += "insert\t\tInserts value at given index.\n"
+    text += "remove\t\tRemoves node at given index\n"
+    text += "destroy\t\tRemoves all nodes\n"
+    text += "delete\t\tRemoves first node with given value\n"
+    text += "delete_all\tRemoves all nodes with give value\n"
+    text += "find\t\tReturns first position of value in the list\n"
+    text += "load_array\tLoads the list from an array"
 
-    print("Type help for help")
+    print("Type 'help' for help")
 
     while True:
-        key = input("\n\nWhat do you want to do ?\n")
+        key = input("\n---What do you want to do ?---\n\n> ")
         match key:
+
             case "push_front":
-                x = int(input("Enter a number:\n"))
+                x = int(input("\nEnter a number to insert at the beginning:\n\n> "))
                 l.push_front(x)
+                l.dump()
+
             case "push_back":
-                x = int(input("Enter a number:\n"))
+                x = int(input("\nEnter a number to insert at the end:\n\n> "))
                 l.push_back(x)
+                l.dump()
+
             case "pop_front":
                 l.pop_front()
+                l.dump()
+
             case "pop_back":
                 l.pop_front()
+                l.dump()
+
             case "dump":
                 l.dump()
+
+            case "reverse":
+                l.reverse()
+                l.dump()
+
+            case "get":
+                x = int(input("\nEnter node position:\n\n> "))
+                print(f"\n\nThe {x}th node has value {l.get()}")
+                l.dump()
+
+            case "insert":
+                x = int(input("\nEnter a number to insert:\n\n> "))
+                pos = int(input("\nWhere to insert it ?\n\n> "))
+                l.insert(x,pos)
+                l.dump()
+
+            case "remove":
+                pos = int(input("\nEnter the position of the node to delete ?\n\n> "))
+                l.remove(pos)
+                l.dump()
+
+            case "destroy":
+                l.destroy()
+                print("\n\nThe list has been destroyed.")
+
+            case "delete":
+                x = int(input("\nEnter the value to delete: \n\n> "))
+                l.delete(x)
+                l.dump()
+
+            case "delete_all":
+                x = int(input("\nEnter the value to delete: \n\n> "))
+                l.delete_all(x)
+                l.dump()
+
+            case "find":
+                x = int(input("\nEnter the node value of the node: \n\n> "))
+                print(f"\n\nThe first node with value {x} is at position  {l.find(x)}")
+
+            case "load_array":
+                arg = input("\nEnter sequence of numbers: \t\t\tEx: 1 2 3 4 5 ...\n\n> ").split()
+                array = [int(x) for x in arg]
+                l.load_array(array)
+                l.dump()
+
             case "help":
                 print(text)
+
             case "quit":
                 exit()
+
+            case _: 
+                print("\n\nNot a valid command. Type 'quit' to quit\n")
