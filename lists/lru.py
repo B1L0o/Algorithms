@@ -1,53 +1,79 @@
+# Least Recently Used (LRU) cache
 class Node:
+    def __init__(self,val = None,key=None):
+        self.val = val
+        self.key = key
+        self.next = None
+        self.prev = None
 
-    def __init__(self,key,value):
-        self.key=key
-        self.value=value
-        self.next=None 
-        self.prev=None
 
+class LRUCache:
 
-class LRU:
-
-    def __init__(self,capacity):
-        self.size=0
+    def __init__(self, capacity: int):
         self.capacity = capacity
-        self.head=None 
-        self.tail=None 
-        self.map = {}
+        self.size = 0
+        self.head = None 
+        self.tail = None     
+        self.map = {}   
 
 
-    def insert(self,key,value):
-        node = Node(key,value)
+    def insert(self, node):
+        if self.size == 0:
+            self.head = node
+            self.tail = node
 
-        if self.size==0:
-            self.head=node 
-            self.tail=node 
-        
         else:
             head = self.head 
-            self.head=node 
-            node.next=head 
-            head.prev=node
+            head.prev = node
+            node.next = head
+            self.head = node
 
-        return node
-
-
-    def remove(node):
-        node.next.prev = node.prev 
-        node.prev.next = node.next
+        self.size+=1
 
 
-    def get(self,key):
+    def remove(self, node):
+        if self.size == 1:
+            self.head = None 
+            self.tail = None
+
+        elif self.head == node:
+            self.head = self.head.next
+            self.head.prev = None
+
+        elif self.tail == node:
+            self.tail = self.tail.prev
+            self.tail.next = None
+            
+        else:
+            node.prev.next = node.next 
+            node.next.prev = node.prev
+
+        self.size -= 1
+
+
+    def get(self, key: int) -> int:
         if key not in self.map:
-            return -1 
-        
-        res = self.map[key][0]
-        node = self.map[key][1]
+            return -1
+
+        node = self.map[key]
         self.remove(node)
-        self.map[key][1] = self.insert(key,res)
-        return res
+        self.insert(node)
+        return node.val
 
 
-    def put(self,key,value):
-        #TODO
+    def put(self, key: int, value: int) -> None:
+        node = Node(value,key)
+        if key not in self.map:
+            self.insert(node)
+            self.map[key] = node
+
+            if self.size > self.capacity:
+                tail = self.tail
+                self.remove(self.tail)
+                self.map.pop(tail.key)
+
+        else:
+            node = self.map[key]
+            node.val = value
+            self.remove(node)
+            self.insert(node)
