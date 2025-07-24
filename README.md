@@ -1,1 +1,1 @@
-Many files contain contain a script that can be executed with Python
+Many files contain a script that can be executed with Python
