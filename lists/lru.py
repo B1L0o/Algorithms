@@ -30,7 +30,6 @@ class LRUCache:
 
         self.size+=1
 
-
     def remove(self, node):
         if self.size == 1:
             self.head = None 
@@ -62,18 +61,13 @@ class LRUCache:
 
 
     def put(self, key: int, value: int) -> None:
+        if key in self.map:
+            self.remove(self.map[key])
+
         node = Node(value,key)
-        if key not in self.map:
-            self.insert(node)
-            self.map[key] = node
+        self.insert(node)
+        self.map[key] = node
 
-            if self.size > self.capacity:
-                tail = self.tail
-                self.remove(self.tail)
-                self.map.pop(tail.key)
-
-        else:
-            node = self.map[key]
-            node.val = value
-            self.remove(node)
-            self.insert(node)
+        if self.size > self.capacity:
+            self.map.pop(self.tail.key)
+            self.remove(self.tail)
