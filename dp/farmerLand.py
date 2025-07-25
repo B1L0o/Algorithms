@@ -1,7 +1,7 @@
-# Same as Google's farmer land question 
+# Same as Google's farmer land question  - Largest square in a matrix
 
 # Leetcode number 221:
-#Given an m x n binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
+# Given an m x n binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
 
 def maximalSquare(self, matrix):
         m,n = len(matrix),len(matrix[0])
