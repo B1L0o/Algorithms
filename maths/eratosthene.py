@@ -3,7 +3,7 @@ import math
 def eratosthenes(n):
     primes = [x % 2 == 1 or x == 2 for x in range(n + 1)]
     root = math.ceil(math.sqrt(n))
-    for i in range(3, root, 2):
+    for i in range(3, root+1, 2):
         for j in range(i, n+1, i):
             if i != j:
                 primes[j] = False
