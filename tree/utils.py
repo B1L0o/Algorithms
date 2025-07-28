@@ -1,5 +1,5 @@
 import math
-from btree import BinaryTree
+from Algorithms.tree.bst import BST
 
 def printTree(root):
         def height(node):
@@ -29,7 +29,7 @@ def printTree(root):
             print(out)
 
 if __name__ == "__main__":
-    tree = BinaryTree()
+    tree = BST()
     for i in range(100):
         tree.add(i)
     tree.balance()

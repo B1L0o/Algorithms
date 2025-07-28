@@ -6,7 +6,7 @@ class Node:
         self.val = val
 
 
-class BinaryTree:
+class BST:
 
     def __init__(self):
         self.root=None 
