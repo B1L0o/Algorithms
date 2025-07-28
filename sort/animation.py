@@ -1,3 +1,5 @@
+# GPT helped me making the animations way faster and smoother by skipping frames
+
 import tkinter as tk
 from tkinter import ttk
 import matplotlib.pyplot as plt
