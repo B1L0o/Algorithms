@@ -33,6 +33,15 @@ class BST:
             else:
                 return
             
+    def construct_from_array(self,arr):
+        def constructTree(left,right):
+            if left <= right:
+                mid = (left + right) // 2 
+                return Node(arr[mid], left = constructTree(left,mid-1), right=constructTree(mid+1,right))
+            return None
+
+        self.root = constructTree(0,len(arr)-1)
+
     def balance(self):
         arr=[]
         def sortBST(node):
@@ -43,11 +52,8 @@ class BST:
             sortBST(node.right)
 
         sortBST(self.root)
+        self.construct_from_array(arr)
         
-        def constructTree(left,right):
-            if left <= right:
-                mid = (left + right) // 2 
-                return Node(arr[mid], left = constructTree(left,mid-1), right=constructTree(mid+1,right))
-            return None
+        
 
-        self.root = constructTree(0,len(arr)-1)
+        

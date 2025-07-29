@@ -3,33 +3,33 @@
 class UnionFind:
 
     def __init__(self,n):
-        self.parent = list(range(n))
-        self.rank = [0] * n
+        self.parents = [-1] * n
 
 
-    def find(self, x):
-        root = self.parent[x]
-        if root == x:
+    def find(self,x):
+        if self.parents[x] < 0:
             return x
-        
-        return self.find(self.parent[x])
+
+        self.parents[x] = self.find(self.parents[x])
+        return self.parents[x]
 
 
-    def union(self, x, y):
-        xRoot = self.find(x)
-        yRoot = self.find(y)
-        if xRoot == yRoot:
+    def union(self,x,y):
+        p1= self.find(x)
+        p2= self.find(y)
+
+        if p1 == p2:
             return
-        #optimization by rank, could aslo be done by size
-        if self.rank[xRoot] < self.rank[yRoot]:
-            self.parent[xRoot] = yRoot
 
-        elif self.rank[xRoot] > self.rank[yRoot]:
-            self.parent[yRoot] = xRoot
+        size1 = self.parents[p1] * -1
+        size2 = self.parents[p2] * -1
 
+        if size1 < size2:
+            self.parents[p1] = p2
+            self.parents[p2] = ( size1 + size2 ) * -1
         else:
-            self.parent[yRoot] = xRoot
-            self.rank[xRoot] += 1
+            self.parents[p2] = p1
+            self.parents[p1] = ( size1 + size2 ) * -1
 
 
 if __name__ == "__main__":
