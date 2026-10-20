@@ -23,7 +23,7 @@ void swap(std::vector<int>& v, int i, int j, int temp)
     v[j] = temp;
 }
 
-void insertion_sort(std::vector<int>& v)
+void selection_sort(std::vector<int>& v)
 {
     int n = v.size();
     int min_pos, temp;

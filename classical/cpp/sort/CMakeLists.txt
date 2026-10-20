@@ -7,5 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(main
     main.cpp
     bubble_sort/bubble_sort.cpp
-    insertion_sort/insertion_sort.cpp
+    selection_sort/selection_sort.cpp
+    quick_sort/quick_sort.cpp
 )
