@@ -8,11 +8,11 @@ Most Python files include a demo that can be run directly.
 | Category | Algorithm | Python | C++ |
 |---|---|---|---|
 | Sort | Bubble sort | ✓ | ✓ |
-| Sort | Selection sort | ✓ | - |
-| Sort | Insertion sort | ✓ | ✓ |
+| Sort | Selection sort | ✓ | ✓ |
+| Sort | Insertion sort | ✓ | - |
 | Sort | Merge sort | ✓ | - |
 | Sort | Heap sort | ✓ | - |
-| Sort | Quick sort | - | - |
+| Sort | Quick sort | - | ✓ |
 | Search | Binary search | ✓ | - |
 | Graphs | Dijkstra | ✓ | - |
 | Graphs | Bellman-Ford | ✓ | - |
