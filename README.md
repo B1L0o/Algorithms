@@ -13,7 +13,6 @@ Most Python files include a demo that can be run directly.
 | Sort | Merge sort | ✓ | - |
 | Sort | Heap sort | ✓ | - |
 | Sort | Quick sort | - | - |
-| Sort | Animated visualizer | ✓ | - |
 | Search | Binary search | ✓ | - |
 | Graphs | Dijkstra | ✓ | - |
 | Graphs | Bellman-Ford | ✓ | - |
